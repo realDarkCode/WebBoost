@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+:root {
+  --theme-color: #24242a;
+  --buttons-color: #197aa6;
+  --secondary-color: #d35400;
+  --white-color: #ecf0f1;
+  --signup--color: #4ccc70;
+  --heading-font: "Montserrat", sans-serif;
+  --content-fonts: "Open Sans", sans-serif;
+  --base-fonts-size: 15px;
+  --title-color: #8e44ad;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: var(--base-fonts-size);
+  font-family: var(--content-fonts);
+  box-sizing: border-box;
+}
+/* ======================= Navigation =========================== */
+nav {
+  background-color: var(--theme-color);
+  color: var(--white-color);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .branding h2 {
+  font-size: 1.7rem;
+}
+nav .branding span.active {
+  font-size: 2rem;
+  color: var(--buttons-color);
+}
+nav .nav-links {
+  width: 40%;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.9rem;
+}
+nav .nav-links a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: var(--white-color);
+  text-transform: capitalize;
+  transition: 0.3s;
+  border-radius: 30px/30px;
+}
+nav .nav-links a:hover {
+  transform: translateY(3px);
+}
+nav .nav-links a.active {
+  transform: translateY(0px);
+  background-color: var(--buttons-color);
+}
+nav .nav-links a.active:hover {
+  background-color: var(--secondary-color);
+}
+/* ======================= Card Design =========================== */
+#intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 700px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card .profile {
+  width: 200px;
+
+  box-shadow: 20px 20px 41px -26px black;
+}
+.card .profile img {
+  width: 100%;
+}
+.card .content {
+  width: 400px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.card .content .title {
+  font-family: var(--heading-font);
+  color: var(--title-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.card .content .desc {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  text-align: justify;
+  font-weight: 400;
+  font-family: var(--heading-font);
+}
+.card .content .desc .greading {
+  font-weight: 700;
+}
+.card .content .links {
+  margin-top: 15px;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+.card .content .links a {
+  text-decoration: none;
+  color: var(--theme-color);
+
+  padding: 6px 7px;
+  border-radius: 50%;
+  transition: 0.3s;
+  background-color: white;
+}
+.card .content .links a i {
+  font-size: 1.3rem;
+}
+.card .content .links a:hover {
+  color: whitesmoke;
+  background-color: var(--theme-color);
+}
+/* ======================= Serviced Design =========================== */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#services > h2 {
+  font-size: 2rem;
+  color: var(--buttons-color);
+}
+#services > ul {
+  list-style: none;
+  background-color: var(--white-color);
+  box-shadow: 8px 7px 14px -9px black;
+  min-width: 600px;
+  overflow: hidden;
+}
+#services > ul li {
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  margin: 10px 15px;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+#services > ul li:hover {
+  color: var(--buttons-color);
+  transform: translateX(25px);
+  cursor: pointer;
+}
+
+#services > ul > li > i {
+  color: #27ae60;
+}
+#signup {
+  width: 600px;
+  margin: 30px auto;
+  background-color: var(--white-color);
+}
+#signup .secTitle {
+  font-size: 2.5rem;
+  color: var(--signup--color);
+  margin-bottom: 3rem;
+}
+#signup .title {
+  text-transform: uppercase;
+  text-align: left;
+  position: relative;
+  padding-left: 40px;
+  font-size: 1.2rem;
+}
+#signup .title::before {
+  content: "#";
+  font-size: 1.2rem;
+  height: 30px;
+  width: 30px;
+  background-color: var(--signup--color);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+}
+#signup form {
+  width: 80%;
+}
+#signup form .input-group {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+}
+#signup form .input-group label {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+}
+
+#signup form .input-group input,
+#signup form .input-group textarea {
+  min-height: 40px;
+  background-color: #ced2d3;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 30px/10px;
+  padding-left: 10px;
+  transition: 0.3s;
+}
+#signup form .input-group input:focus,
+#signup form .input-group textarea:focus {
+  border: 1px solid var(--signup--color);
+  padding-left: 15px;
+  background-color: var(--white-color);
+}
+#signup form button[type="submit"] {
+  display: block;
+  width: 100%;
+  background-color: var(--signup--color);
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#signup form button[type="submit"]:hover{
+  background-color: var(--theme-color);
+}
