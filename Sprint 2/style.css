@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Benne&family=Raleway:wght@300;400;500;700&display=swap");
+:root {
+  --theme-color: #34495e;
+  --secondary-color: #d35400;
+  --white-color: #f5f6fa;
+  --theme-fonts: "Raleway", sans-serif;
+  --theme-heading: "Benne", serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--theme-color);
+  padding: 0px 30px;
+  min-height: 70px;
+}
+nav .branding {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-family: var(--theme-heading);
+  font-weight: 500;
+  color: var(--white-color);
+}
+nav .branding span {
+  text-transform: capitalize;
+  color: var(--secondary-color);
+}
+nav .nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+}
+
+nav .nav-options {
+  position: relative;
+  font-family: var(--theme-heading);
+  font-size: 1.2rem;
+  color: var(--white-color);
+  font-weight: 700;
+  text-transform: capitalize;
+  transition: 0.3s;
+  cursor: pointer;
+}
+nav .nav-options:hover {
+  color: var(--secondary-color);
+}
+nav .nav-options:hover .nav-subMenu {
+  transform: scaleY(1);
+}
+nav .nav-subMenu {
+  color: var(--white-color);
+  list-style: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--theme-color);
+  border-radius: 5px;
+  left: 0;
+  overflow: hidden;
+  transform-origin: top;
+  transition: 0.2s;
+  transform: scaleY(0);
+}
+nav .nav-subOptions {
+  transition: 0.3s;
+  transform-origin: top;
+  display: block;
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 5px 20px;
+  position: relative;
+  border-bottom: 1px solid var(--white-color);
+}
+
+nav .nav-subOptions:hover {
+  cursor: pointer;
+  transform: translateX(15px);
+  background-color: var(--secondary-color);
+}
