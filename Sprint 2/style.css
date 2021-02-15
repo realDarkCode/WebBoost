@@ -2,7 +2,10 @@
 :root {
   --theme-color: #34495e;
   --secondary-color: #d35400;
+  --third-color: #2980b9;
   --white-color: #f5f6fa;
+  --black-color: #1e272e;
+  --gray-color: #d1ccc0;
   --theme-fonts: "Raleway", sans-serif;
   --theme-heading: "Benne", serif;
 }
@@ -12,6 +15,7 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -46,7 +50,7 @@ nav .nav-options {
   color: var(--white-color);
   font-weight: 700;
   text-transform: capitalize;
-  transition: 0.3s;
+  transition: all 0.3s;
   cursor: pointer;
 }
 nav .nav-options:hover {
@@ -55,6 +59,7 @@ nav .nav-options:hover {
 nav .nav-options:hover .nav-subMenu {
   transform: scaleY(1);
 }
+
 nav .nav-subMenu {
   color: var(--white-color);
   list-style: none;
@@ -86,4 +91,90 @@ nav .nav-subOptions:hover {
   cursor: pointer;
   transform: translateX(15px);
   background-color: var(--secondary-color);
+}
+nav .nav-options:hover ul.mega-menu {
+  display: grid;
+  opacity: 1;
+}
+ul.mega-menu {
+  position: absolute;
+  left: -61vw;
+  top: 33px;
+  width: 90vw;
+  display: none;
+  opacity: 0;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: var(--gray-color);
+  border-radius: 20px;
+}
+ul.mega-menu .part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  position: relative;
+}
+
+ul.mega-menu .part::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30%;
+  height: 70%;
+  width: 2px;
+  background-color: var(--theme-color);
+}
+ul.mega-menu .part:first-child:before {
+  height: 0px;
+}
+ul.mega-menu .part .mega-menu-img {
+  width: 90%;
+}
+ul.mega-menu .mega-menu-option {
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: 0.3s;
+  text-transform: capitalize;
+  position: relative;
+}
+ul.mega-menu .mega-menu-option:hover {
+  transform: translateX(15px);
+}
+ul.mega-menu .mega-menu-option:hover a {
+  color: var(--secondary-color);
+  font-weight: 900;
+}
+ul.mega-menu .mega-menu-option:hover::before {
+  width: 100%;
+}
+ul.mega-menu .mega-menu-option.title:hover::before {
+  width: 0px;
+}
+ul.mega-menu .mega-menu-option.title:hover {
+  transform: translateX(0);
+}
+ul.mega-menu .mega-menu-option::before {
+  transition: 0.5s;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--third-color);
+}
+ul.mega-menu .mega-menu-option a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+ul.mega-menu .mega-menu-option.title {
+  color: var(--black-color) !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  align-items: center;
 }
