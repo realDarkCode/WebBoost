@@ -206,63 +206,42 @@ ul.mega-menu .mega-menu-option.title {
   min-height: 200px;
   max-height: 300px;
   width: 100%;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center center !important;
   overflow: hidden;
   transition: 0.3s;
   filter: grayscale(1);
 }
-
+#gallery .image img {
+  width: 100%;
+}
 #gallery .image:hover {
   cursor: pointer;
   filter: grayscale(0);
-  transform:scale(1.1);
+  transform: scale(1.1);
   z-index: 3;
 }
-#gallery .image:nth-child(1) {
-  background: url(https://picsum.photos/500/500);
+#masonary-image {
+  position: relative;
+  margin-top: 150px;
 }
-#gallery .image:nth-child(2) {
-  background: url(https://picsum.photos/500/501);
+.masonary-container {
+  columns: 4;
+  column-gap: 16px;
 }
-
-#gallery .image:nth-child(3) {
-  background: url(https://picsum.photos/500/502);
+.masonary-img {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 5px;
+  transition: 0.3s;
 }
-
-#gallery .image:nth-child(4) {
-  background: url(https://picsum.photos/500/503);
+.masonary-img img {
+  border-radius: 15px;
+  width: 100%;
 }
-
-#gallery .image:nth-child(5) {
-  background: url(https://picsum.photos/500/504);
+.masonary-img ~ {
+  transform: scale(1.5);
 }
-
-#gallery .image:nth-child(6) {
-  background: url(https://picsum.photos/500/505);
-}
-
-#gallery .image:nth-child(7) {
-  background: url(https://picsum.photos/500/506);
-}
-
-#gallery .image:nth-child(8) {
-  background: url(https://picsum.photos/500/507);
-}
-
-#gallery .image:nth-child(9) {
-  background: url(https://picsum.photos/500/508);
-}
-
-#gallery .image:nth-child(10) {
-  background: url(https://picsum.photos/500/509);
-}
-
-#gallery .image:nth-child(11) {
-  background: url(https://picsum.photos/500/510);
-}
-
-#gallery .image:nth-child(12) {
-  background: url(https://picsum.photos/500/511);
+.masonary-img:hover {
+  cursor: pointer;
+  z-index: 10;
+  /* transform: scale(1.1); */
 }
