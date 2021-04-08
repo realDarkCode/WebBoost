@@ -4,6 +4,7 @@
   --black: #181818;
   --gray: #636363;
   --theme-primary: #eb5667;
+  --theme-secondary: #2ecc71;
   --theme-font: "Londrina Solid", cursive;
   --heading: "Noto Serif", serif;
 }
@@ -15,6 +16,11 @@
 }
 img {
   width: 100%;
+}
+.no-select {
+  -webkit-user-select: none;
+
+  user-select: none;
 }
 /* =============================================Nav Bar Start==================================== */
 nav {
@@ -29,6 +35,28 @@ nav .branding {
   font-size: 1.5rem;
   color: var(--gray);
   font-family: var(--theme-font);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .branding h2 {
+  margin-right: 70px;
+  color: var(--gray);
+}
+nav .branding .profile-links a {
+  color: var(--gray);
+  text-decoration: none;
+  padding: 5px 8px;
+  margin-left: 10px;
+  border: 2px solid var(--gray);
+  border-radius: 100%;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+nav .branding .profile-links a:hover {
+  color: var(--theme-secondary);
+  border: 2px solid var(--theme-secondary);
 }
 nav .nav-menu {
   display: flex;
@@ -60,6 +88,9 @@ nav .nav-menu .nav-item a {
 }
 nav .nav-menu .nav-item:hover {
   transform: translateY(20px);
+}
+nav .nav-menu .nav-item:hover a {
+  color: var(--theme-secondary);
 }
 nav .nav-menu .nav-item:hover::before {
   transform: scaleX(1);
@@ -98,6 +129,15 @@ nav .nav-menu .nav-item:hover::before {
   color: var(--gray);
   letter-spacing: 3px;
   font-weight: 300;
+}
+#intro .intro-content .js-color {
+  color: #ecdd246b;
+}
+#intro .intro-content .node-color {
+  color: #7ecb298c;
+}
+#intro .intro-content .react-color {
+  color: #29c3e485;
 }
 #intro .intro-content .intro-btn {
   position: relative;
