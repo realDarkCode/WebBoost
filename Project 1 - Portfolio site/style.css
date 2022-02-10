@@ -29,6 +29,9 @@ body,
 
   user-select: none;
 }
+body {
+  background-color: var(--black);
+}
 /* =============================================Nav Bar Start==================================== */
 nav {
   display: flex;
@@ -47,6 +50,7 @@ nav .branding {
   justify-content: space-between;
   align-items: center;
 }
+
 nav .branding h2 {
   margin-right: 70px;
   color: var(--gray);
@@ -277,5 +281,8 @@ nav .nav-menu .nav-item:hover::before {
 }
 #about-me .about-content .about-btn:hover {
   box-shadow: inset 0 60px 0 0 var(--theme-primary);
+}
+.about-left {
+  width: 50%;
 }
 /* =============================================About Section End!==================================== */
