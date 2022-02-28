@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Benne&family=Raleway:wght@300;400;500;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Benne&family=Raleway:wght@300;400;500;700&display=swap"); */
 :root {
   --theme-color: #2c3e50;
   --theme-color-hover: #485460;
@@ -244,4 +244,170 @@ ul.mega-menu .mega-menu-option.title {
   cursor: pointer;
   z-index: 10;
   /* transform: scale(1.1); */
+}
+/* ====================================================Form============================================= */
+#form {
+  min-height: 70vh;
+  margin-top: 30px;
+  position: relative;
+}
+
+#form .form-container {
+  width: 60rem;
+  display: flex;
+  margin: auto;
+}
+
+.form-container .form-svg {
+  width: 40%;
+}
+.form-container .form-svg img {
+  width: 100%;
+}
+
+.form-container .main-form {
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form-container .main-form .form-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-container .main-form .form-top .form-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  position: relative;
+}
+.form-container .main-form .form-top .form-title::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  background-color: #2980b9;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+.form-container .main-form .form-top .form-language {
+  min-height: 50px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+}
+.form-container .main-form .form-top .form-language li button {
+  outline: none;
+  border: none;
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  border-radius: 50%;
+  padding: 8px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.form-container .main-form .form-top .form-language li button.active {
+  background-color: var(--theme-color);
+}
+
+.form-container .main-form .form-area {
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas:
+    "name role"
+    "email phone"
+    "country  city"
+    "password  confirm-password"
+    "gender gender";
+}
+.form-container .main-form .form-area .input-box:not(.input-box.gender) {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-container .main-form .form-area .input-box label {
+  font-size: 1.2rem;
+  font-weight: blod;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.form-container .main-form .form-area .input-box input {
+  border: none;
+  outline: none;
+  padding-bottom: 7px;
+  position: relative;
+  border-bottom: 2px solid #d35400;
+}
+
+.name {
+  grid-area: name;
+}
+.role {
+  grid-area: role;
+}
+.email {
+  grid-area: email;
+}
+.phone {
+  grid-area: phone;
+}
+.country {
+  grid-area: country;
+}
+.city {
+  grid-area: city;
+}
+.password {
+  grid-area: password;
+}
+.confirm-password {
+  grid-area: confirm-password;
+}
+.gender {
+  grid-area: gender;
+  display: flex;
+  flex-direction: column;
+}
+.gender-inputs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-submit {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.form-submit > button {
+  display: block;
+  width: 100%;
+  margin: auto;
+  padding: 5px 0;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-submit > button:hover {
+  background-color: #144e75;
+}
+.form-submit > span {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #b3b3b3;
 }

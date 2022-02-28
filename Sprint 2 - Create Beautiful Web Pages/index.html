@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint 2</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
+        crossorigin="anonymous" /> -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
+    <!-- <nav>
         <div class="branding">
             <h2>Dark<span>Code</span></h2>
         </div>
@@ -159,6 +159,90 @@
                 <img src="https://images.unsplash.com/photo-1591394688877-04e67ae2edda?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fDZzTVZqVExTa2VRfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                     alt="masonary-image">
             </div>
+        </div>
+    </section> -->
+
+    <section id="form">
+        <div class="form-container">
+            <div class="form-svg">
+                <img src="form-svg.svg" alt="Form-svg">
+            </div>
+            <form method="post" class="main-form">
+                <div class="form-top">
+                    <h2 class="form-title">
+                        Registration
+                    </h2>
+                    <ul class="form-language">
+                        <li><button class="active">en</button></li>
+                        <li><button>bn</button></li>
+                    </ul>
+                </div>
+                <div class="form-area">
+                    <div class="input-box name">
+                        <label for="name">Enter Full Name</label>
+                        <input placeholder="Enter your name" type="text" name="name" id="name">
+                    </div>
+                    <div class="input-box role">
+                        <label for="role">name of role you are appylign</label>
+                        <select name="role" id="role">
+                            <option value="member">Member</option>
+                            <option value="team-member">Team Member</option>
+                            <option value="lead">lead</option>
+                            <option value="project-manager">Project Manager</option>
+                        </select>
+                    </div>
+                    <div class="input-box email">
+                        <label for="email">Email</label>
+                        <input placeholder="Enter your email" type="email" name="email" id="email">
+                    </div>
+                    <div class="input-box phone">
+                        <label for="phone">phone Number</label>
+                        <input placeholder="Your phone number" type="phone" name="phone" id="phone">
+                    </div>
+                    <div class="input-box country">
+                        <label for="country">Country</label>
+                        <input placeholder="Country name" type="text" name="country" id="country">
+                    </div>
+                    <div class="input-box city">
+                        <label for="city">city</label>
+                        <input placeholder="City you live" type="text" name="city" id="city">
+                    </div>
+                    <div class="input-box password">
+                        <label for="password">password</label>
+                        <input type="password" placeholder="Enter your password" name="password" id="password">
+                    </div>
+                    <div class="input-box confirm-password">
+                        <label for="confirm-password">Confirm password</label>
+                        <input type="password" placeholder="Confirm your pssword" name="confirm-password"
+                            id="confirm-password">
+                    </div>
+                    <div class="input-box gender">
+                        <h4>Gender</h4>
+                        <div class="gender-inputs">
+                            <div class="single-grp">
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="single-grp">
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Female</label>
+                            </div>
+
+                            <div class="single-grp">
+                                <input type="radio" id="other" name="gender" value="other">
+                                <label for="other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <button type="submit">Submit</button>
+                    <span>Already have a account?
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            Login now</a>
+                    </span>
+                </div>
+            </form>
         </div>
     </section>
 </body>
