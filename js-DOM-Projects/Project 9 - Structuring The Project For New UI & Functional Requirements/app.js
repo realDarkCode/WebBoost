@@ -1,23 +1,18 @@
 /**
- * Project Requirements:
- * - Change the background color by generating random hex color by clicking a button
- * - Also display the hex code to a disabled input field
- * - Add a button to copy the color code
- * - Add a toast message when copied
- * - User can type their own hex code too
- * - show rgb color too, but do not need to edit it
- * - user can also copy the rgb color code
+ * Author: Tanzil Islam
+ * Date: 08-03-2022
+ * Description: Color Picker Application
  */
-
-// Steps
 
 // Globals
 let toastMsgDiv = null;
 
+// onload handler
 window.onload = () => {
   main();
 };
 
+// main or boot function, this function will take care of getting all the DOM references
 function main() {
   const root = document.getElementById("root");
   const hexColorDisplay = document.getElementById("output");
@@ -65,46 +60,9 @@ function main() {
   });
 }
 
-// function 1 - generate three random decimal number for red, green and blue
-// return as an object
-function generateColorDecimal() {
-  const red = Math.floor(Math.random() * 255);
-  const green = Math.floor(Math.random() * 255);
-  const blue = Math.floor(Math.random() * 255);
+// event handlers
 
-  return {
-    red,
-    green,
-    blue,
-  };
-}
-
-// function 2 - generate hex color code
-function generateHexColor({ red, green, blue }) {
-  const getTwoCode = (value) => {
-    const hex = value.toString(16);
-    return hex.length === 1 ? `0${hex}` : hex;
-  };
-
-  return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(
-    blue
-  )}`.toUpperCase();
-}
-
-// function 3 - generate rgba color code
-function generateRGBColor({ red, green, blue }) {
-  return `rgb(${red}, ${green}, ${blue})`;
-}
-/**
- * convert Hex to RBG color
- * @param {string} hex
- */
-function hexToRgb(hex) {
-  const red = parseInt(hex.slice(0, 2), 16);
-  const green = parseInt(hex.slice(2, 4), 16);
-  const blue = parseInt(hex.slice(4), 16);
-  return `rgb(${red}, ${green}, ${blue})`;
-}
+// DOM functions
 function removeToastMessage() {
   toastMsgDiv.classList.remove("toast-message-slide-in");
   toastMsgDiv.classList.add("toast-message-slide-out");
@@ -125,43 +83,67 @@ function generateToastMessage(msg) {
     removeToastMessage();
   }, 2000);
 }
+// util functions
 
 /**
- * @param {string} color : ;
+ * Generate and return an object of three color decimal values
+ * @returns {object}
+ */
+function generateColorDecimal() {
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
+
+  return {
+    red,
+    green,
+    blue,
+  };
+}
+
+/**
+ * take a color object of three values and return hexadecimal color code
+ * @param {object} color
+ * @returns {string}
+ */
+function generateHexColor({ red, green, blue }) {
+  const getTwoCode = (value) => {
+    const hex = value.toString(16);
+    return hex.length === 1 ? `0${hex}` : hex;
+  };
+
+  return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(
+    blue
+  )}`.toUpperCase();
+}
+
+/**
+ * take a color object of three values and return rbg color code
+ * @param {object} color
+ * @returns {string}
+ */
+function generateRGBColor({ red, green, blue }) {
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+/**
+ * convert Hex to RBG color
+ * @param {string} hex
+ * @returns {string}
+ */
+function hexToRgb(hex) {
+  const red = parseInt(hex.slice(0, 2), 16);
+  const green = parseInt(hex.slice(2, 4), 16);
+  const blue = parseInt(hex.slice(4), 16);
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+/**
+ * validate hex color code
+ * @param {string} color;
+ * @returns {boolean}
  */
 function isValidHex(color) {
   if (color.length !== 6) return false;
   return /^[0-9A-Fa-f]{6}$/i.test(color);
 }
 
-// Step 1 - create onload handler
-
-// step 2 - random color generator function
-
-// step 3 - collect all necessary references
-
-// step 4 - handle the change button click event
-
-// step 5 - handle the copy button click event
-
-// Step 6 - activate toast message
-
-// Step 7 - create a dynamic toast message
-
-// step 8 - clear toast message
-
-// step 9 - create isHexValid function
-
-// step 10 - implement change handler on input field
-
-// step 11 - prevent copying hex code if it is not valid
-
-// step 12 - refactor the color generator function
-
-// step 13 - update color code to display rbg colors
-
-// step 14 - create hex to rgb function
-
-// step 15 - update change handler
-
-// step 16 - implement copy function
