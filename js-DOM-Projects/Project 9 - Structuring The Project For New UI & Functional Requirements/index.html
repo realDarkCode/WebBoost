@@ -15,7 +15,7 @@
       <section class="section">
         <div class="section-header">
           <h3 class="section-title">Display Color</h3>
-          <button class="section-header-action">Random Color</button>
+          <button class="section-header-action" id="generate-random-color">Random Color</button>
         </div>
         <div class="divider"></div>
         <div class="color-display" id="color-display"></div>
@@ -50,7 +50,6 @@
               <label for="input-hex" class="lead">Hex</label>
               <input
                 type="text"
-                value="dddeee"
               placeholder="dddeee"
                 id="input-hex"
                 class="text-input hex-input"
@@ -59,7 +58,7 @@
             </div>
             <div class="rgb-input-group">
               <label for="input-rgb" class="lead">RGB</label>
-              <input type="text" value="rgb(221, 222, 238)"
+              <input type="text" 
               placeholder="rgb(221, 222, 238)" id="input-rgb" class="text-input"
               disabled>
             </div>
