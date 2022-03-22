@@ -23,17 +23,8 @@ function main() {
     "click",
     handleGenerateRandomColorBtn
   );
-
-  colorModeHexInp.addEventListener("keyup", function (e) {
-    const color = e.target.value;
-    if (color) {
-      hexColorDisplay.value = color.toUpperCase();
-      if (isValidHex(color)) {
-        root.style.backgroundColor = `#${color}`;
-        rbgColorDisplay.value = hexToRgb(color);
-      }
-    }
-  });
+  // changing color via hex color input field
+  colorModeHexInp.addEventListener("keyup", handleColorModeHexInput);
   // hexCopyBtn.addEventListener("click", function () {
   //   navigator.clipboard.writeText(`#${hexColorDisplay.value}`);
   //   if (toastMsgDiv !== null) {
@@ -58,6 +49,15 @@ function main() {
 function handleGenerateRandomColorBtn() {
   const color = generateColorDecimal();
   updateColorCodeToDom(color);
+}
+function handleColorModeHexInput(e) {
+  const hexColor = e.target.value;
+  if (hexColor) {
+    if (isValidHex(hexColor)) {
+      const color = hexToDecimalColor(hexColor);
+      updateColorCodeToDom(color);
+    }
+  }
 }
 // DOM functions
 function removeToastMessage() {
