@@ -14,14 +14,31 @@ window.onload = () => {
 
 // main or boot function, this function will take care of getting all the DOM references
 function main() {
+  // Dom References
   const generateRandomColorBtn = document.getElementById(
     "generate-random-color"
   );
   const colorModeHexInp = document.getElementById("input-hex");
+  const colorSliderRed = document.getElementById("color-slider-red");
+  const colorSliderGreen = document.getElementById("color-slider-green");
+  const colorSliderBlue = document.getElementById("color-slider-blue");
 
+  // event listeners
   generateRandomColorBtn.addEventListener(
     "click",
     handleGenerateRandomColorBtn
+  );
+  colorSliderRed.addEventListener(
+    "change",
+    handleColorSlider(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
+  colorSliderGreen.addEventListener(
+    "change",
+    handleColorSlider(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
+  colorSliderBlue.addEventListener(
+    "change",
+    handleColorSlider(colorSliderRed, colorSliderGreen, colorSliderBlue)
   );
   // changing color via hex color input field
   colorModeHexInp.addEventListener("keyup", handleColorModeHexInput);
@@ -58,6 +75,16 @@ function handleColorModeHexInput(e) {
       updateColorCodeToDom(color);
     }
   }
+}
+function handleColorSlider(colorSliderRed, colorSliderGreen, colorSliderBlue) {
+  return function () {
+    const color = {
+      red: parseInt(colorSliderRed.value),
+      green: parseInt(colorSliderGreen.value),
+      blue: parseInt(colorSliderBlue.value),
+    };
+    updateColorCodeToDom(color);
+  };
 }
 // DOM functions
 function removeToastMessage() {
