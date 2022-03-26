@@ -94,6 +94,9 @@ body {
   display: flex;
   gap: 1rem;
 }
+label {
+  user-select: none;
+}
 /* selected color code */
 .selected-color-code {
   display: grid;
