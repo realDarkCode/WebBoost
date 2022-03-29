@@ -176,7 +176,7 @@ text-input:disabled {
   top: 2rem;
   right: 2rem;
   background-color: rgb(19, 201, 110);
-  color: #000;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 0.25rem;
   padding: 1rem 2rem;

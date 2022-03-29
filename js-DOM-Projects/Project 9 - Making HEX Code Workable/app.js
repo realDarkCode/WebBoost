@@ -6,10 +6,15 @@
 
 // Globals
 let toastMessageContainer = null;
-
+const defaultColor = {
+  red: 221,
+  green: 222,
+  blue: 238,
+};
 // onload handler
 window.onload = () => {
   main();
+  updateColorCodeToDom(defaultColor);
 };
 
 // main or boot function, this function will take care of getting all the DOM references
@@ -22,7 +27,6 @@ function main() {
   const colorSliderRed = document.getElementById("color-slider-red");
   const colorSliderGreen = document.getElementById("color-slider-green");
   const colorSliderBlue = document.getElementById("color-slider-blue");
-  const colorModeRadios = document.getElementsByName("color-mode");
   const copyToClipboardButton = document.getElementById("copy-to-clipboard");
   // event listeners
   generateRandomColorBtn.addEventListener(
@@ -41,38 +45,9 @@ function main() {
     "change",
     handleColorSlider(colorSliderRed, colorSliderGreen, colorSliderBlue)
   );
-  copyToClipboardButton.addEventListener("click", function () {
-    const mode = getCheckedValueFromRadios(colorModeRadios);
-    if (mode == null) {
-      throw new Error("Invalid color mode radio input");
-    } else if (mode == "hex") {
-      const hexValue = document.getElementById("input-hex").value;
-      navigator.clipboard.writeText(`#${hexValue}`);
-    } else if (mode == "rgb") {
-      const rgbValue = document.getElementById("input-rgb").value;
-      navigator.clipboard.writeText(`${rgbValue}`);
-    }
-  });
+  copyToClipboardButton.addEventListener("click", handleCopyToClipboard);
   // changing color via hex color input field
   colorModeHexInp.addEventListener("keyup", handleColorModeHexInput);
-  // hexCopyBtn.addEventListener("click", function () {
-  //   navigator.clipboard.writeText(`#${hexColorDisplay.value}`);
-  //   if (toastMsgDiv !== null) {
-  //     removeToastMessage();
-  //   }
-  //   if (isValidHex(hexColorDisplay.value)) {
-  //     generateToastMessage(`#${hexColorDisplay.value} copied`);
-  //   } else {
-  //     alert("Invalid Color Code");
-  //   }
-  // });
-  // rbgCopyBtn.addEventListener("click", function () {
-  //   navigator.clipboard.writeText(`${rbgColorDisplay.value}`);
-  //   if (toastMsgDiv !== null) {
-  //     removeToastMessage();
-  //   }
-  //   generateToastMessage(`${rbgColorDisplay.value} copied`);
-  // });
 }
 
 // event handlers
@@ -99,6 +74,33 @@ function handleColorSlider(colorSliderRed, colorSliderGreen, colorSliderBlue) {
     updateColorCodeToDom(color);
   };
 }
+function handleCopyToClipboard() {
+  const colorModeRadios = document.getElementsByName("color-mode");
+
+  const mode = getCheckedValueFromRadios(colorModeRadios);
+  if (toastMessageContainer !== null) {
+    removeToastMessage();
+  }
+  if (mode == null) {
+    throw new Error("Invalid color mode radio input");
+  } else if (mode == "hex") {
+    const hexValue = document.getElementById("input-hex").value;
+    if (hexValue && isValidHex(hexValue)) {
+      navigator.clipboard.writeText(`#${hexValue}`);
+      generateToastMessage(`#${hexValue} Copied`);
+    } else {
+      alert("Invalid Hex Code!, Unable to copy");
+    }
+  } else if (mode == "rgb") {
+    const rgbValue = document.getElementById("input-rgb").value;
+    if (rgbValue) {
+      navigator.clipboard.writeText(`${rgbValue}`);
+      generateToastMessage(`${rgbValue} Copied`);
+    } else {
+      alert("Invalid Hex Code!, Unable to copy");
+    }
+  }
+}
 // DOM functions
 /**
  * Remove already generated toast message
@@ -122,7 +124,7 @@ function generateToastMessage(msg) {
   toastMessageContainer.className = "toast-message toast-message-slide-in";
 
   toastMessageContainer.addEventListener("click", removeToastMessage);
-  document.body.appendChild(toastMsgDiv);
+  document.body.appendChild(toastMessageContainer);
   setTimeout(() => {
     removeToastMessage();
   }, 2000);
