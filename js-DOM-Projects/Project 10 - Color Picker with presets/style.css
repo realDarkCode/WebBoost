@@ -227,7 +227,6 @@ text-input:disabled {
   width: 75px;
   height: 30px;
   border-radius: 0.15rem;
-  background-color: palegoldenrod;
   cursor: pointer;
   transition: all 0.2s;
 }
