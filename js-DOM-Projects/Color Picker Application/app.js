@@ -1,6 +1,6 @@
 /**
  * Author: Tanzil Islam
- * Date: 08-03-2022
+ * created-Date: 08-03-2022
  * Description: Color Picker Application
  */
 
@@ -37,6 +37,7 @@ const defaultPresetColors = [
   "#ccff90",
   "#ffcc80",
 ];
+const customColors = [];
 const copySound = new Audio("./copy-sound.wav");
 // onload handler
 window.onload = () => {
@@ -61,6 +62,8 @@ function main() {
   const colorSliderBlue = document.getElementById("color-slider-blue");
   const copyToClipboardButton = document.getElementById("copy-to-clipboard");
   const presetColorsParent = document.getElementById("preset-colors");
+  const customColorsParent = document.getElementById("custom-colors");
+  const saveToCustomBtn = document.getElementById("save-to-custom");
   // event listeners
   generateRandomColorBtn.addEventListener(
     "click",
@@ -80,8 +83,13 @@ function main() {
   );
   copyToClipboardButton.addEventListener("click", handleCopyToClipboard);
   presetColorsParent.addEventListener("click", handlePresetColorsParent);
+  customColorsParent.addEventListener("click", handlePresetColorsParent);
   // changing color via hex color input field
   colorModeHexInp.addEventListener("keyup", handleColorModeHexInput);
+  saveToCustomBtn.addEventListener(
+    "click",
+    handleSaveToCustomBtn(customColorsParent, colorModeHexInp)
+  );
 }
 
 // event handlers
@@ -139,9 +147,21 @@ function handlePresetColorsParent(event) {
   const child = event.target;
   if (child.className === "color-box") {
     navigator.clipboard.writeText(child.getAttribute("data-color"));
+    generateToastMessage(
+      `${child.getAttribute("data-color")} copied to clipboard`
+    );
     copySound.volume = 0.3;
     copySound.play();
   }
+}
+function handleSaveToCustomBtn(customColorsParent, colorModeHexInp) {
+  return function () {
+    if (isValidHex(colorModeHexInp.value)) {
+      customColors.push(`#${colorModeHexInp.value}`);
+    }
+    removeChildren(customColorsParent);
+    displayColorBoxes(customColorsParent, customColors);
+  };
 }
 // DOM functions
 /**
@@ -216,6 +236,18 @@ function generateColorBox(color) {
   div.style.backgroundColor = color;
   div.setAttribute("data-color", color);
   return div;
+}
+/**
+ * Remove all children from a parent node
+ * @param {Object} parentNode
+ */
+function removeChildren(parentNode) {
+  let child = parentNode.lastElementChild;
+
+  while (child) {
+    parentNode.removeChild(child);
+    child = parentNode.lastElementChild;
+  }
 }
 /**
  * this function will create and append new color boxes to it's parent element
