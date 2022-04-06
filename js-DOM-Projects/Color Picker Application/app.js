@@ -157,7 +157,7 @@ function handlePresetColorsParent(event) {
 function handleSaveToCustomBtn(customColorsParent, colorModeHexInp) {
   return function () {
     if (isValidHex(colorModeHexInp.value)) {
-      if (!customColors.includes(colorModeHexInp.value)) {
+      if (!customColors.includes(`#${colorModeHexInp.value}`)) {
         customColors.push(`#${colorModeHexInp.value}`);
       }
     }
