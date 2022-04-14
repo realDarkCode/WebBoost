@@ -283,6 +283,7 @@ function removeChildren(parentNode) {
  */
 function displayColorBoxes(parent, colors) {
   colors.forEach((color) => {
+    if (!color) return;
     if (!isValidHex(color.slice(1))) return;
     const colorBox = generateColorBox(color);
     parent.appendChild(colorBox);
