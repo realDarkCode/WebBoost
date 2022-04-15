@@ -158,7 +158,15 @@
             <p class="lead">Background Preview</p>
             <div class="background-image" id="background-preview"></div>
             <div class="background-control">
-              <input type="file" class="file-input" id="bg-file-input" />
+              <input
+                type="file"
+                accept="image/*"
+                class="file-input"
+                id="bg-file-input"
+              />
+              <button class="background-control-btn" id="bg-file-delete-btn">
+                Remove
+              </button>
               <button class="background-control-btn" id="bg-file-input-btn">
                 Upload
               </button>
